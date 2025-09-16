@@ -1,0 +1,15 @@
+{
+  "name": "kamzy-lee",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w apps/backend && npm run build -w apps/frontend",
+    "start": "concurrently \"npm run start -w apps/backend\" \"npm run start -w apps/frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

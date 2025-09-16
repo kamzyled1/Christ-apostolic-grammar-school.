@@ -1,0 +1,27 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Sidebar = ({ role }: { role: string }) => {
+  return (
+    <div className="h-screen w-60 bg-wine text-white flex flex-col p-4">
+      <h1 className="text-xl font-bold mb-6">CAGS Portal</h1>
+      <nav className="flex flex-col gap-4">
+        <Link to="/dashboard">Dashboard</Link>
+        {role === "Principal" && <>
+          <Link to="/dashboard/announcements">Announcements</Link>
+          <Link to="/dashboard/approvals">Approvals</Link>
+          <Link to="/dashboard/about">Edit About</Link>
+          <Link to="/dashboard/ai-reports">AI Reports</Link>
+        </>}
+        {role === "Teacher" && <>
+          <Link to="/dashboard/assignments">Assignments</Link>
+          <Link to="/dashboard/reports">Reports</Link>
+        </>}
+        {/* ... Other role links */}
+        <Link to="/dashboard/settings">Settings</Link>
+      </nav>
+    </div>
+  );
+};
+
+export default Sidebar;
